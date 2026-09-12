@@ -109,18 +109,21 @@ def validate_skill(skill_dir: Path):
 def main():
     repo_root = Path(__file__).resolve().parent.parent
     candidate_roots = [repo_root / "skills", repo_root / ".agents" / "skills"]
-    skills = []
+    skills_by_path = {}
     
     for r in candidate_roots:
         if r.exists():
-            skills.extend([p for p in r.iterdir() if p.is_dir() and not p.name.startswith(".")])
+            for p in r.iterdir():
+                if p.is_dir() and not p.name.startswith("."):
+                    skills_by_path[p.resolve()] = p
         
+    skills = list(skills_by_path.values())
     if not skills:
         print("No skills found.")
         sys.exit(0)
         
     has_errors = False
-    print(f"🔍 Validating {len(skills)} skills across workspace...\n")
+    print(f"🔍 Validating {len(skills)} unique skills across workspace...\n")
     
     for skill_dir in sorted(skills, key=lambda p: p.name):
         errors, warnings = validate_skill(skill_dir)

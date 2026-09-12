@@ -32,7 +32,7 @@ Every skill in this repository adheres to a strict 3-tier progressive disclosure
 skill-lab/
 ├── .agents/
 │   └── skills/
-│       └── commit/             # Maintainer atomic conventional commit skill
+│       └── commit -> ../../skills/commit # Symlink for native workspace agent discovery
 ├── AGENTS.md                   # AI steering instructions for maintaining this repo
 ├── .editorconfig               # Whitespace, charset, and indentation standards
 ├── .markdownlint.json          # Markdown formatting rules
@@ -46,6 +46,10 @@ skill-lab/
     │   ├── SKILL.md            # Adversarial review convergence loop
     │   ├── references/         # Reviewer prompt & triage matrix
     │   └── examples/           # Multi-round disposition log
+    ├── commit/
+    │   ├── SKILL.md            # Atomic conventional commit protocol
+    │   ├── references/         # Allowed types, scopes, and formatting
+    │   └── examples/           # Dependency ordering and reversibility
     └── humanize-prose/
         ├── SKILL.md            # William Zinsser non-fiction writing principles
         ├── references/         # Banned AI slop catalog & substitutions
@@ -60,7 +64,7 @@ skill-lab/
 | :--- | :--- | :--- | :--- |
 | [`artifact-second-opinion`](./skills/artifact-second-opinion/SKILL.md) | `review` | `skills/` | Independent writer-reviewer convergence loop for ADRs, RFCs, specs, policies, and prompts. |
 | [`humanize-prose`](./skills/humanize-prose/SKILL.md) | `editing` | `skills/` | Strips AI boilerplate, corporate buzzwords, and synthetic patterns using Zinsser principles. |
-| [`commit`](./.agents/skills/commit/SKILL.md) | `workflow` | `.agents/skills/` | Creates atomic, conventional git commits ordered by layer with zero trailers. |
+| [`commit`](./skills/commit/SKILL.md) | `workflow` | `skills/` | Creates atomic, conventional git commits ordered by layer with zero trailers. |
 
 ---
 
