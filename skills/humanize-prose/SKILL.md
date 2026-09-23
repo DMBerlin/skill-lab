@@ -52,10 +52,15 @@ Transform synthetic, AI-generated drafts into clear, punchy, and natural prose b
 
 ## Execution Protocol
 
-1. **Ingest & Extract:** Identify the core thesis and technical assertions of the input text.
+1. **Ingest & Extract:** Identify the core thesis, requirements, and technical assertions of the input text.
 2. **Apply Principles:** Filter the text through all four principles simultaneously. For guidance on specific phrase swaps, inspect [Banned Lexicon & Substitutions](./references/banned-lexicon.md).
-3. **Compare with Ground Truth:** Verify tone and structure against [Transformation Examples](./examples/transformations.md).
-4. **Deliver Clean Prose:** Return the revised text directly. Do not append meta-commentary, change logs, or conversational sign-offs unless the user explicitly requests them.
+3. **Audit Against Verification Checklist:** Confirm the revision satisfies every check before delivery:
+   - [ ] **Technical Fidelity:** All code tokens, command flags, schema attributes, and API names are preserved verbatim.
+   - [ ] **Zero Lexicon Violations:** No terms from [Banned Lexicon & Substitutions](./references/banned-lexicon.md) (`delve`, `leverage`, `tapestry`, etc.) remain.
+   - [ ] **Formula Purge:** No parallel negations (*"not just X, but Y"*), rhetorical self-questions, or crutch em dashes (`—`).
+   - [ ] **Semantic Parity:** No technical caveats, error conditions, or core claims were dropped during condensation.
+4. **Compare with Ground Truth:** Verify tone and cadence against [Transformation Examples](./examples/transformations.md).
+5. **Deliver Clean Prose:** Return the revised text directly. Do not append meta-commentary, change logs, or conversational sign-offs unless the user explicitly requests them.
 
 ---
 
