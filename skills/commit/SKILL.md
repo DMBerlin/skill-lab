@@ -54,12 +54,17 @@ For each atomic chunk in sequence:
    ```bash
    git commit -m "<type>(<scope>): <subject>" -m "<single-line explanation of why>"
    ```
+3. **Hook Failure Recovery:** If a pre-commit hook or linter fails, resolve the reported code or formatting issue directly and re-stage. Never bypass hooks with `--no-verify` unless the user explicitly commands it.
 
-### 4. Verify History
-Confirm that commits were created cleanly and signed:
-```bash
-git log -n <count> --oneline --show-signature
-```
+### 4. Verify History & Working Tree
+1. Confirm that commits were created cleanly and signed:
+   ```bash
+   git log -n <count> --oneline --show-signature
+   ```
+2. Confirm the working tree is in the expected state with zero unintended leftovers:
+   ```bash
+   git status --porcelain
+   ```
 
 ---
 

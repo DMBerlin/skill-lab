@@ -41,7 +41,7 @@ Spawn one review-only agent with a fresh context containing only the artifact an
 
 **Capability Fallback Matrix:**
 - **Level 1 (Subagent Tool):** Invoke a dedicated reviewer subagent (`invoke_subagent` / `Task`), ideally using an alternate model family.
-- **Level 2 (In-Thread Cold Reader):** If subagent tools are unavailable, isolate the prompt in a fresh context window.
+- **Level 2 (In-Thread Cold Reader):** If subagent tools are unavailable, simulate the reviewer in-thread by framing the persona inside explicit delimiters (`--- BEGIN COLD-READER REVIEW ---`) and evaluating strictly from the provided artifact and contracts without referencing earlier conversation context.
 - **Level 3 (User Export):** If execution is strictly bounded, format the reviewer prompt for the user to run externally.
 
 Initialize the reviewer with the prompt and schema from [Reviewer Prompt Template](./references/reviewer-prompt.md).
@@ -56,7 +56,7 @@ Classify every reviewer finding using the criteria in [Classification & Triage M
 
 ### 4. Apply Edits & Return Dispositions
 - The writer applies edits. The reviewer never edits files directly.
-- Address every reviewer finding and question in a structured disposition table.
+- Address every reviewer finding and question in a structured disposition log (keyed list).
 - For disputed items, quote the authoritative evidence directly.
 - See [Sample Multi-Round Disposition Log](./examples/disposition-log.md).
 
@@ -67,7 +67,12 @@ Repeat the review-edit-disposition loop until:
 - **Hard Stop:** Stop after 3 reviewer rounds. If disagreements remain, escalate to the user.
 
 ### 6. Deliver Report
-Report the final verdict, round count, summaries of edits made, resolutions of disputed points, and governing contracts.
+Format the final delivery report using the standard convergence schema:
+- **Verdict:** `GOLD` or `NEEDS-USER-ESCALATION`
+- **Rounds Completed:** `<1..3>`
+- **Governing Contracts:** `<list of files/schemas verified>`
+- **Edits Applied:** `<concise bullet list of modifications made>`
+- **Disputed / Deferred Items:** `<resolutions and cited evidence, or "None">`
 
 ---
 
