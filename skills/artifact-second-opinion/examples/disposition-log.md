@@ -33,11 +33,21 @@ This log illustrates how the writer handles reviewer findings across multiple ro
 
 ## Writer Disposition (Round 1)
 
-| # | Class | Rationale | Action Taken |
-|---|---|---|---|
-| 1 | Defect | Reviewer correctly identified contradiction with RFC-014. | Added Redis session store specification to Section 3. |
-| 2 | Defect | Discrepancy between table and prose resolved. | Standardized connection pool limit to `10`. |
-| 3 | Disputed | RFC-010 benchmark proves PostgreSQL handles our target 2k writes/sec with no performance drop. | No edit. Quoted RFC-010 benchmark results. |
+- finding: 1
+  class: Defect
+  rationale: Reviewer correctly identified contradiction with RFC-014.
+  action: Added Redis session store specification to Section 3.
+
+- finding: 2
+  class: Defect
+  rationale: Discrepancy between table and prose resolved.
+  action: Standardized connection pool limit to 10.
+
+- finding: 3
+  class: Disputed
+  rationale: RFC-010 benchmark proves PostgreSQL handles our target 2k writes/sec with no performance drop.
+  action: No edit. Quoted RFC-010 benchmark results.
+
 
 ---
 

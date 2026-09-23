@@ -104,6 +104,22 @@ def validate_skill(skill_dir: Path):
         if not target_path.exists():
             errors.append(f"Broken relative link: '{link}' -> '{target_path.resolve()}' does not exist.")
 
+    # 5. Markdown table detection (AGENTS.md Rule 3.2: Keyed lists over ASCII tables)
+    for md_file in sorted(skill_dir.rglob("*.md")):
+        rel_path = md_file.relative_to(skill_dir)
+        md_lines = md_file.read_text(encoding="utf-8").splitlines()
+        file_in_codeblock = False
+        for idx, line in enumerate(md_lines, 1):
+            stripped = line.strip()
+            if stripped.startswith("```"):
+                file_in_codeblock = not file_in_codeblock
+                continue
+            if not file_in_codeblock and re.search(r"\|\s*:?-+:?\s*\|", stripped):
+                warnings.append(
+                    f"{rel_path}:{idx}: Markdown table detected. "
+                    "Prefer keyed lists over ASCII tables for prompt caching and token efficiency (AGENTS.md Rule 3.2)."
+                )
+
     return errors, warnings
 
 def main():

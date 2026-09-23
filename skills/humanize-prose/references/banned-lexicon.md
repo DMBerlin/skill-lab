@@ -7,23 +7,66 @@ Use concrete nouns and direct verbs instead.
 
 ## 1. High-Frequency AI Slop
 
-| AI Slop Term | Why It Fails | Natural Replacement |
-| :--- | :--- | :--- |
-| `delve` | Stereotypical LLM tell; dramatic and unnatural | *examine, explore, look into, read* |
-| `leverage` | Corporate abstraction | *use, apply, build on* |
-| `tapestry` | Purple prose cliché | *mix, collection, variety, structure* |
-| `pivotal` | Significance inflation | *key, critical, important, central* |
-| `foster` | Vague corporate buzzword | *encourage, support, build, grow* |
-| `testament` | Dramatic overstatement | *evidence, sign, shows, proves* |
-| `realm` | High-fantasy/pompous metaphor | *area, field, domain, space* |
-| `dynamic` | Meaningless filler adjective | *adaptive, fast, active, changing* |
-| `beacon` | Self-congratulatory metaphor | *guide, standard, example* |
-| `underscored` | Repetitive meta-signpost | *emphasized, highlighted, stressed* |
-| `synergy` | Classic corporate jargon | *collaboration, teamwork, combined effect* |
-| `multifaceted` | Weak qualifier | *complex, varied, has multiple parts* |
-| `holistic` | Vague hand-waving | *complete, comprehensive, end-to-end* |
-| `paradigm` | Pompous buzzword | *model, approach, system* |
-| `game-changer` | Overhyped marketing claim | *significant improvement, major advance* |
+- term: delve
+  critique: Stereotypical LLM tell; dramatic and unnatural
+  replace: examine, explore, look into, read
+
+- term: leverage
+  critique: Corporate abstraction
+  replace: use, apply, build on
+
+- term: tapestry
+  critique: Purple prose cliché
+  replace: mix, collection, variety, structure
+
+- term: pivotal
+  critique: Significance inflation
+  replace: key, critical, important, central
+
+- term: foster
+  critique: Vague corporate buzzword
+  replace: encourage, support, build, grow
+
+- term: testament
+  critique: Dramatic overstatement
+  replace: evidence, sign, shows, proves
+
+- term: realm
+  critique: High-fantasy and pompous metaphor
+  replace: area, field, domain, space
+
+- term: dynamic
+  critique: Meaningless filler adjective
+  replace: adaptive, fast, active, changing
+
+- term: beacon
+  critique: Self-congratulatory metaphor
+  replace: guide, standard, example
+
+- term: underscored
+  critique: Repetitive meta-signpost
+  replace: emphasized, highlighted, stressed
+
+- term: synergy
+  critique: Classic corporate jargon
+  replace: collaboration, teamwork, combined effect
+
+- term: multifaceted
+  critique: Weak qualifier
+  replace: complex, varied, has multiple parts
+
+- term: holistic
+  critique: Vague hand-waving
+  replace: complete, comprehensive, end-to-end
+
+- term: paradigm
+  critique: Pompous buzzword
+  replace: model, approach, system
+
+- term: game-changer
+  critique: Overhyped marketing claim
+  replace: significant improvement, major advance
+
 
 ---
 
